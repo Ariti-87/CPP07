@@ -55,5 +55,10 @@ int main()
 	Array<int> arr4;
 	std::cout << "Empty array : " << arr4 << std::endl;
 
+	// Comportement de base de la gestion de la mémoire dynamique en C++
+	// Initialise l'objet a 0
+	int * a = new int();
+	std::cout << *a << std::endl;
+	delete a;
 	return 0;
 }
