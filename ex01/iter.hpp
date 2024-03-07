@@ -16,17 +16,33 @@
 #include <iostream>
 
 template<typename T, typename F>
-void iter(T *arr, int len, F func)
+void iter(T *arr, int len, void (*fptr)(F const&))
 {
 	for (int i = 0; i < len; i++)
-		func(arr[i]);
+		(*fptr)(arr[i]);
 }
 
 template<typename T>
-void display(T element)
+void display(T const& element)
 {
 	std::cout << element << std::endl;
 }
+
+// the first set is more restrictive but ensures that elements passed to display are not modified.
+// while the second set offers more flexibility and can handle a wider range of callable objects, 
+
+// template<typename T, typename F>
+// void iter(T *arr, int len, F func)
+// {
+// 	for (int i = 0; i < len; i++)
+// 		func(arr[i]);
+// }
+
+// template<typename T>
+// void display(T element)
+// {
+// 	std::cout << element << std::endl;
+// }
 
 #endif
 
